@@ -1,0 +1,1 @@
+var apiUrl='https://psm-website.myshopify.com/products.json?limit=50&fields=title,vendor,handle';

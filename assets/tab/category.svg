@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="615" height="581" viewBox="0 0 615 581">
+  <g id="Group_1353" data-name="Group 1353" transform="translate(-2289 -3686)">
+    <path id="Rectangle_609" data-name="Rectangle 609" d="M52,37A15.017,15.017,0,0,0,37,52V529a15.017,15.017,0,0,0,15,15H563a15.017,15.017,0,0,0,15-15V52a15.017,15.017,0,0,0-15-15H52M52,0H563a52,52,0,0,1,52,52V529a52,52,0,0,1-52,52H52A52,52,0,0,1,0,529V52A52,52,0,0,1,52,0Z" transform="translate(2289 3686)" fill="green"/>
+    <rect id="Rectangle_611" data-name="Rectangle 611" width="33" height="101.571" rx="16.5" transform="translate(2470.285 3781.714) rotate(90)" fill="green"/>
+    <rect id="Rectangle_620" data-name="Rectangle 620" width="33" height="101.571" rx="16.5" transform="translate(2470.285 3843.714) rotate(90)" fill="green"/>
+    <rect id="Rectangle_621" data-name="Rectangle 621" width="33" height="101.571" rx="16.5" transform="translate(2470.285 3905.714) rotate(90)" fill="green"/>
+    <rect id="Rectangle_622" data-name="Rectangle 622" width="33" height="101.571" rx="16.5" transform="translate(2470.285 3967.714) rotate(90)" fill="green"/>
+    <path id="Rectangle_615" data-name="Rectangle 615" d="M21,21V164.571H69.5V21H21M12,0H78.5a12,12,0,0,1,12,12V173.571a12,12,0,0,1-12,12H12a12,12,0,0,1-12-12V12A12,12,0,0,1,12,0Z" transform="translate(2803.285 3781.714) rotate(90)" fill="green"/>
+    <path id="Rectangle_618" data-name="Rectangle 618" d="M21,21V164.571H69.5V21H21M12,0H78.5a12,12,0,0,1,12,12V173.571a12,12,0,0,1-12,12H12a12,12,0,0,1-12-12V12A12,12,0,0,1,12,0Z" transform="translate(2803.285 3965.214) rotate(90)" fill="green"/>
+    <rect id="Rectangle_616" data-name="Rectangle 616" width="23" height="185.571" rx="11.5" transform="translate(2803.285 3884.714) rotate(90)" fill="green"/>
+    <rect id="Rectangle_619" data-name="Rectangle 619" width="23" height="185.571" rx="11.5" transform="translate(2803.285 4068.214) rotate(90)" fill="green"/>
+    <path id="Rectangle_610" data-name="Rectangle 610" d="M19.5,0A19.5,19.5,0,0,1,39,19.5V540.071a19.5,19.5,0,0,1-39,0V19.5A19.5,19.5,0,0,1,19.5,0Z" transform="translate(2549 4267) rotate(-180)" fill="green"/>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "201108559785",
+    "project_id": "psm-uae",
+    "storage_bucket": "psm-uae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201108559785:android:82044d5cb387759fec16b8",
+        "android_client_info": {
+          "package_name": "com.psmuae.apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201108559785-p22rl59jmc9mvqemo88bc3cpv6g8f25f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtXxdi76l6G-G_tj1F2xzMrOw-AY_1clQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201108559785-p22rl59jmc9mvqemo88bc3cpv6g8f25f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "201108559785-49o0i8rclsatoblk23j3cc23g8snrfsb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.psmuae.apps"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

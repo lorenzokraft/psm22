@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="579.019" height="511.945" viewBox="0 0 579.019 511.945">
+  <g id="Group_1352" data-name="Group 1352" transform="translate(467.474 -3792.054)">
+    <path id="Path_52" data-name="Path 52" d="M414.992,357.744h-296.1c-22.942,0-41.027-16.586-43.015-39.438C74.528,302.7,81.071,288.68,92.555,280.1L46.143,72.287A19.294,19.294,0,0,1,64.974,48.779h435.5a19.3,19.3,0,0,1,18.22,25.657L468.526,218.187a58.884,58.884,0,0,1-45.44,38.595l-304.88,53.276c-.071.006-.135.019-.206.032-1.467.257-4.008.811-3.654,4.883.36,4.169,3.088,4.169,4.555,4.169H415a19.3,19.3,0,1,1-.006,38.6ZM89.068,87.38l40.538,181.5L416.433,218.76a20.284,20.284,0,0,0,15.646-13.285L473.293,87.38Z" transform="translate(-408.229 3825.065)" fill="green"/>
+    <path id="Path_53" data-name="Path 53" d="M124.206,133.57a19.308,19.308,0,0,1-18.818-15.1l-8.846-39.6a34.457,34.457,0,0,0-33.828-27.1H19.3a19.3,19.3,0,0,1,0-38.6h43.42a72.838,72.838,0,0,1,71.5,57.284l8.846,39.6a19.3,19.3,0,0,1-14.63,23.045A19.517,19.517,0,0,1,124.206,133.57Z" transform="translate(-467.474 3778.882)" fill="green"/>
+    <path id="Union_2" data-name="Union 2" d="M0,40.784,40,80Zm80-1.568L40,80ZM40,0,0,40.784Zm0,0L80,39.216Z" transform="translate(-312.5 4212)" fill="none" stroke="green" stroke-linecap="square" stroke-linejoin="round" stroke-width="24"/>
+    <path id="Union_4" data-name="Union 4" d="M0,40.784,40,80Zm80-1.568L40,80ZM40,0,0,40.784Zm0,0L80,39.216Z" transform="translate(-66.308 4212)" fill="none" stroke="green" stroke-linecap="square" stroke-linejoin="round" stroke-width="24"/>
+    <rect id="Rectangle_604" data-name="Rectangle 604" width="39" height="113" rx="19.5" transform="matrix(-0.866, -0.5, 0.5, -0.866, -223.225, 4044.918)" fill="green"/>
+    <rect id="Rectangle_605" data-name="Rectangle 605" width="39" height="113" rx="19.5" transform="matrix(-0.866, -0.5, 0.5, -0.866, -138.225, 4044.918)" fill="green"/>
+    <rect id="Rectangle_606" data-name="Rectangle 606" width="39" height="113" rx="19.5" transform="matrix(-0.866, -0.5, 0.5, -0.866, -54.225, 4044.918)" fill="green"/>
+  </g>
+</svg>
