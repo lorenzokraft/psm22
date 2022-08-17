@@ -760,7 +760,6 @@ List<MetaSubCategories> listOfMetaSubCategories = [
       subCategories: 'Pak Foods',
       metaSubCatories: 'Pak Foods',
       image: 'assets/pakfoods.png'),
-      
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNzExNzUyOTMzMA==',
       subCategories: 'Dairy & Eggs',
@@ -1011,8 +1010,6 @@ List<MetaSubCategories> listOfMetaSubCategories = [
       subCategories: 'Body Care',
       metaSubCatories: 'Body Care',
       image: 'assets/Body Care.png'),
-      
-
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDMyOTU3OTc2Mg==',
       subCategories: 'Face Care',
@@ -1290,6 +1287,5 @@ List<SubCategory> subCategories = [
       title: 'Pak Foods',
       subCategories: 'Pak Foods',
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDIyMjE5OTAyNg==',
-      image
       icon: const Icon(Icons.arrow_drop_down)),
 ];
