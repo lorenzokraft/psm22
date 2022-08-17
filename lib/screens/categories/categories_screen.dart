@@ -759,7 +759,8 @@ List<MetaSubCategories> listOfMetaSubCategories = [
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDIyMjE5OTAyNg==',
       subCategories: 'Pak Foods',
       metaSubCatories: 'Pak Foods',
-      image: 'assets/General.png'),
+      image: 'assets/pakfoods.png'),
+      
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNzExNzUyOTMzMA==',
       subCategories: 'Dairy & Eggs',
@@ -839,12 +840,12 @@ List<MetaSubCategories> listOfMetaSubCategories = [
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNTEzODE3ODI5MA==',
       subCategories: 'Fresh Box',
       metaSubCatories: 'Fresh Box',
-      image: 'assets/Frozen Foods.png'),
+      image: 'assets/FreshBox.png'),
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNTEzODE0NTUyMg==',
       subCategories: 'Mangoes',
       metaSubCatories: 'Mangoes',
-      image: 'assets/Frozen Foods.png'),
+      image: 'assets/Mangoes.png'),
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNTEzODUwNTk3MA==',
       subCategories: 'Masala & Spices',
@@ -1010,6 +1011,8 @@ List<MetaSubCategories> listOfMetaSubCategories = [
       subCategories: 'Body Care',
       metaSubCatories: 'Body Care',
       image: 'assets/Body Care.png'),
+      
+
   MetaSubCategories(
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDMyOTU3OTc2Mg==',
       subCategories: 'Face Care',
@@ -1287,5 +1290,6 @@ List<SubCategory> subCategories = [
       title: 'Pak Foods',
       subCategories: 'Pak Foods',
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDIyMjE5OTAyNg==',
+      image
       icon: const Icon(Icons.arrow_drop_down)),
 ];
