@@ -302,6 +302,7 @@ class SettingScreenState extends State<SettingScreen>
       ),
     );
   }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
   Widget renderItem(value) {
     Widget? leading;
@@ -382,23 +383,24 @@ class SettingScreenState extends State<SettingScreen>
           break;
         }
 
-
-    case 'Our Branches':
-      {
-        leading = Icon(CupertinoIcons.tag);
-        title = 'Our Branches';
-        trailing = const Icon(
-          Icons.arrow_forward_ios,
-          size: 18,
-          color: kGrey600,
-        );
-        onTap = () {FluxNavigate.push(
-          MaterialPageRoute(
-            builder: (context) => OurBranches(),
-          ),
-        );};
-        break;
-      }
+      case 'Our Branches':
+        {
+          leading = Icon(CupertinoIcons.tag);
+          title = 'Our Branches';
+          trailing = const Icon(
+            Icons.arrow_forward_ios,
+            size: 18,
+            color: kGrey600,
+          );
+          onTap = () {
+            FluxNavigate.push(
+              MaterialPageRoute(
+                builder: (context) => OurBranches(),
+              ),
+            );
+          };
+          break;
+        }
       case 'Deliver areas':
         {
           leading = Icon(CupertinoIcons.location);
@@ -408,11 +410,13 @@ class SettingScreenState extends State<SettingScreen>
             size: 18,
             color: kGrey600,
           );
-          onTap = () {FluxNavigate.push(
-            MaterialPageRoute(
-              builder: (context) => DeliverAreas(),
-            ),
-          );};
+          onTap = () {
+            FluxNavigate.push(
+              MaterialPageRoute(
+                builder: (context) => DeliverAreas(),
+              ),
+            );
+          };
           break;
         }
       case 'Terms and Condition':
@@ -434,23 +438,22 @@ class SettingScreenState extends State<SettingScreen>
           break;
         }
 
-
       case 'wishlist':
         {
           trailing = Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-            Consumer<ProductWishListModel>(builder: (context, model, child) {
-              if (model.products.isNotEmpty){
-                return Text(
-                  '${model.products.length} ${S.of(context).items}',
-                  style: TextStyle(
-                      fontSize: 14, color: Theme.of(context).primaryColor),
-                );
-              }else {
-                return const SizedBox();
-              }
-            }),
+              Consumer<ProductWishListModel>(builder: (context, model, child) {
+                if (model.products.isNotEmpty) {
+                  return Text(
+                    '${model.products.length} ${S.of(context).items}',
+                    style: TextStyle(
+                        fontSize: 14, color: Theme.of(context).primaryColor),
+                  );
+                } else {
+                  return const SizedBox();
+                }
+              }),
               const SizedBox(width: 5),
               const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600)
             ],
@@ -468,13 +471,13 @@ class SettingScreenState extends State<SettingScreen>
             mainAxisSize: MainAxisSize.min,
             children: [
               Consumer<ProductWishListModel>(builder: (context, model, child) {
-                if (model.products.isNotEmpty){
+                if (model.products.isNotEmpty) {
                   return Text(
                     '${model.products.length} ${S.of(context).items}',
                     style: TextStyle(
                         fontSize: 14, color: Theme.of(context).primaryColor),
                   );
-                }else {
+                } else {
                   return const SizedBox();
                 }
               }),
@@ -512,7 +515,12 @@ class SettingScreenState extends State<SettingScreen>
           );
 
           title = 'Buy again';
-          leading= Image.asset('assets/buyagain.png',height: 25,width: 25,color: Colors.grey.shade600,);
+          leading = Image.asset(
+            'assets/buyagain.png',
+            height: 25,
+            width: 25,
+            color: Colors.grey.shade600,
+          );
           //icon = icon;
           onTap = () {
             final user = Provider.of<UserModel>(context, listen: false).user;
@@ -521,11 +529,10 @@ class SettingScreenState extends State<SettingScreen>
               arguments: user,
             );
           };
-              // Navigator.of(context, rootNavigator: true).pushReplacement(
-              // MaterialPageRoute(builder: (context) => MainTabs(audioService: injector.get())));
+          // Navigator.of(context, rootNavigator: true).pushReplacement(
+          // MaterialPageRoute(builder: (context) => MainTabs(audioService: injector.get())));
           break;
         }
-
 
       case 'notifications':
         {
@@ -684,26 +691,26 @@ class SettingScreenState extends State<SettingScreen>
           };
           break;
         }
-      case 'point':
-        {
-          if (!(kAdvanceConfig['EnablePointReward'] == true && user != null)) {
-            return const SizedBox();
-          }
-          if (Config().isListingType) {
-            return const SizedBox();
-          }
-          leading = Icon(CupertinoIcons.bag_badge_plus);
-          title = S.of(context).myPoints;
-          trailing =
-              const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
-          onTap = () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UserPointScreen(),
-                ),
-              );
-          break;
-        }
+      // case 'point':
+      //   {
+      //     if (!(kAdvanceConfig['EnablePointReward'] == true && user != null)) {
+      //       return const SizedBox();
+      //     }
+      //     if (Config().isListingType) {
+      //       return const SizedBox();
+      //     }
+      //     leading = Icon(CupertinoIcons.bag_badge_plus);
+      //     title = S.of(context).myPoints;
+      //     trailing =
+      //         const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
+      //     onTap = () => Navigator.push(
+      //           context,
+      //           MaterialPageRoute(
+      //             builder: (context) => UserPointScreen(),
+      //           ),
+      //         );
+      //     break;
+      //   }
       // case 'rating':
       //   {
       //     icon = CupertinoIcons.star;
@@ -719,7 +726,7 @@ class SettingScreenState extends State<SettingScreen>
           leading = Icon(CupertinoIcons.info);
           title = S.of(context).aboutUs;
           trailing =
-          const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
+              const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
           onTap = () {
             final about = subGeneralSetting['about'];
             final aboutUrl = about?.webUrl ?? SettingConstants.aboutUsUrl;
@@ -727,7 +734,7 @@ class SettingScreenState extends State<SettingScreen>
             if (kIsWeb) {
               return Tools.launchURL(aboutUrl);
             }
-            return     FluxNavigate.push(
+            return FluxNavigate.push(
               MaterialPageRoute(
                 builder: (context) => AboutUs(),
               ),
@@ -744,49 +751,48 @@ class SettingScreenState extends State<SettingScreen>
           break;
         }
 
-
-      case 'privacy':
-        {
-          leading = Icon(CupertinoIcons.doc_text);
-          title = S.of(context).agreeWithPrivacy;
-          trailing =
-              const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
-          onTap = () {
-            final privacy = subGeneralSetting['privacy'];
-            final pageId =
-                privacy?.pageId ?? kAdvanceConfig['PrivacyPoliciesPageId'];
-            String? pageUrl =
-                privacy?.webUrl ?? kAdvanceConfig['PrivacyPoliciesPageUrl'];
-            if (pageId != null) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PostScreen(
-                        pageId: pageId,
-                        pageTitle: S.of(context).agreeWithPrivacy),
-                  ));
-              return;
-            }
-            if (pageUrl?.isNotEmpty ?? false) {
-              ///Display multiple languages WebView
-              var locale =
-                  Provider.of<AppModel>(context, listen: false).langCode;
-              if (pageUrl != null && locale != null) {
-                pageUrl += '?lang=$locale';
-              }
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => WebView(
-                    url: pageUrl,
-                    title: S.of(context).agreeWithPrivacy,
-                  ),
-                ),
-              );
-            }
-          };
-          break;
-        }
+      // case 'privacy':
+      //   {
+      //     leading = Icon(CupertinoIcons.doc_text);
+      //     title = S.of(context).agreeWithPrivacy;
+      //     trailing =
+      //         const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600);
+      //     onTap = () {
+      //       final privacy = subGeneralSetting['privacy'];
+      //       final pageId =
+      //           privacy?.pageId ?? kAdvanceConfig['PrivacyPoliciesPageId'];
+      //       String? pageUrl =
+      //           privacy?.webUrl ?? kAdvanceConfig['PrivacyPoliciesPageUrl'];
+      //       if (pageId != null) {
+      //         Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (context) => PostScreen(
+      //                   pageId: pageId,
+      //                   pageTitle: S.of(context).agreeWithPrivacy),
+      //             ));
+      //         return;
+      //       }
+      //       if (pageUrl?.isNotEmpty ?? false) {
+      //         ///Display multiple languages WebView
+      //         var locale =
+      //             Provider.of<AppModel>(context, listen: false).langCode;
+      //         if (pageUrl != null && locale != null) {
+      //           pageUrl += '?lang=$locale';
+      //         }
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(
+      //             builder: (context) => WebView(
+      //               url: pageUrl,
+      //               title: S.of(context).agreeWithPrivacy,
+      //             ),
+      //           ),
+      //         );
+      //       }
+      //     };
+      //     break;
+      //   }
 
       // case 'post':
       //   {
@@ -858,7 +864,6 @@ class SettingScreenState extends State<SettingScreen>
 
   @override
   Widget build(BuildContext context) {
-
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.green.shade700,
@@ -883,20 +888,20 @@ class SettingScreenState extends State<SettingScreen>
             floating: true,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              // title: Text(
-              //   S.of(context).settings,
-              //   style: const TextStyle(
-              //       fontSize: 18,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.w600),
-              // ),
-              background: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset('assets/account_banner.png',fit: BoxFit.cover)),
-              )
-            ),
+                // title: Text(
+                //   S.of(context).settings,
+                //   style: const TextStyle(
+                //       fontSize: 18,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.w600),
+                // ),
+                background: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset('assets/account_banner.png',
+                      fit: BoxFit.cover)),
+            )),
             actions: Navigator.canPop(context)
                 ? [
                     Padding(
@@ -922,7 +927,7 @@ class SettingScreenState extends State<SettingScreen>
             final user = model.user;
             final loggedIn = model.loggedIn;
             return CustomScrollView(
-            //  appbar,
+              //  appbar,
               slivers: <Widget>[
                 SliverList(
                   delegate: SliverChildListDelegate(
@@ -933,10 +938,12 @@ class SettingScreenState extends State<SettingScreen>
                             width: double.infinity,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset('assets/account_banner.png'))),
+                                child:
+                                    Image.asset('assets/account_banner.png'))),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 40.0,left:12,right: 12),
+                        padding: const EdgeInsets.only(
+                            top: 40.0, left: 12, right: 12),
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: const Card(
@@ -957,50 +964,74 @@ class SettingScreenState extends State<SettingScreen>
                           elevation: 4,
                           child: Column(
                             children: [
-                            ...List.generate(settings.length,
+                              ...List.generate(
+                                settings.length,
                                 (index) {
-                              var item = settings[index];
-                              var isTitle = item.contains('title');
-                              return Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: isTitle ? 0.0 : itemPadding),
-                                child: renderItem(item),
-                              );
-                            },
-                            ),
+                                  var item = settings[index];
+                                  var isTitle = item.contains('title');
+                                  return Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            isTitle ? 0.0 : itemPadding),
+                                    child: renderItem(item),
+                                  );
+                                },
+                              ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     const SizedBox(height: 10.0),
                                     if (user != null && user.name != null)
                                       ListTile(
-                                        leading: (user.picture?.isNotEmpty ?? false)
+                                        leading: (user.picture?.isNotEmpty ??
+                                                false)
                                             ? CircleAvatar(
-                                          backgroundImage: NetworkImage(user.picture!),
-                                        )
+                                                backgroundImage:
+                                                    NetworkImage(user.picture!),
+                                              )
                                             : const Icon(Icons.face),
-                                        title: Text(user.name!.replaceAll('fluxstore', ''), style: textStyle,
+                                        title: Text(
+                                          user.name!
+                                              .replaceAll('fluxstore', ''),
+                                          style: textStyle,
                                         ),
                                       ),
-                                    if (user != null && user.email != null && user.email!.isNotEmpty)
+                                    if (user != null &&
+                                        user.email != null &&
+                                        user.email!.isNotEmpty)
                                       ListTile(
                                         leading: const Icon(Icons.email),
-                                        title: Text(user.email!, style: const TextStyle(fontSize: 16)),
+                                        title: Text(user.email!,
+                                            style:
+                                                const TextStyle(fontSize: 16)),
                                       ),
                                     if (user != null && !Config().isWordPress)
                                       Card(
-                                        color: Theme.of(context).backgroundColor,
-                                        margin: const EdgeInsets.only(bottom: 2.0),
+                                        color:
+                                            Theme.of(context).backgroundColor,
+                                        margin:
+                                            const EdgeInsets.only(bottom: 2.0),
                                         elevation: 0,
                                         child: ListTile(
-                                          leading: Icon(Icons.portrait, color: Theme.of(context).colorScheme.secondary, size: 25),
-                                          title: Text(S.of(context).updateUserInfor, style: const TextStyle(fontSize: 15)),
-                                          trailing: const Icon(Icons.arrow_forward_ios, size: 18, color: kGrey600),
+                                          leading: Icon(Icons.portrait,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                              size: 25),
+                                          title: Text(
+                                              S.of(context).updateUserInfor,
+                                              style: const TextStyle(
+                                                  fontSize: 15)),
+                                          trailing: const Icon(
+                                              Icons.arrow_forward_ios,
+                                              size: 18,
+                                              color: kGrey600),
                                           onTap: () async {
                                             final hasChangePassword =
-                                            await FluxNavigate.pushNamed(
+                                                await FluxNavigate.pushNamed(
                                               RouteList.updateUser,
                                               forceRootNavigator: true,
                                             ) as bool?;
@@ -1016,25 +1047,42 @@ class SettingScreenState extends State<SettingScreen>
                                       ),
                                     if (user == null)
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         height: 100,
                                         child: Card(
-                                          color: Theme.of(context).backgroundColor,
-                                          margin: const EdgeInsets.only(bottom: 2.0),
+                                          color:
+                                              Theme.of(context).backgroundColor,
+                                          margin: const EdgeInsets.only(
+                                              bottom: 2.0),
                                           elevation: 2,
                                           child: Column(
                                             children: [
                                               SizedBox(height: 10),
-                                              const Text('Login to your account or register a new one!',style: TextStyle(fontWeight: FontWeight.bold)),
+                                              const Text(
+                                                  'Login to your account or register a new one!',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
                                               Padding(
-                                                padding: const EdgeInsets.only(top:17.0,bottom: 6.0,left: 8,right: 8),
+                                                padding: const EdgeInsets.only(
+                                                    top: 17.0,
+                                                    bottom: 6.0,
+                                                    left: 8,
+                                                    right: 8),
                                                 child: SizedBox(
-                                                  width: MediaQuery.of(context).size.width,
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
                                                   height: 40,
                                                   child: ElevatedButton(
-                                                      onPressed: (){
-                                                        Navigator.of(context , rootNavigator: true).pushReplacementNamed(RouteList.authentication);
-
+                                                      onPressed: () {
+                                                        Navigator.of(context,
+                                                                rootNavigator:
+                                                                    true)
+                                                            .pushReplacementNamed(
+                                                                RouteList
+                                                                    .authentication);
 
                                                         // if (!loggedIn) {
                                                         //   Navigator.of(App.fluxStoreNavigatorKey.currentContext!,
@@ -1051,40 +1099,47 @@ class SettingScreenState extends State<SettingScreen>
                                                         //     (route) => false,
                                                         //   );
                                                         // }
-
-
-                                                      },child: const Text('LOGIN OR REGISTER',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold))),
+                                                      },
+                                                      child: const Text(
+                                                          'LOGIN OR REGISTER',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold))),
                                                 ),
                                               )
                                             ],
                                           ),
-
-
                                         ),
                                       ),
 
-
-
                                     if (user != null)
                                       Card(
-                                        color: Theme.of(context).backgroundColor,
-                                        margin: const EdgeInsets.only(bottom: 2.0),
+                                        color:
+                                            Theme.of(context).backgroundColor,
+                                        margin:
+                                            const EdgeInsets.only(bottom: 2.0),
                                         elevation: 0,
                                         child: ListTile(
                                           onTap: _onLogout,
                                           leading: Icon(
                                             Icons.logout,
                                             size: 20,
-                                            color:
-                                            Theme.of(context).colorScheme.secondary,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
                                           ),
-
                                           title: Text(
                                             S.of(context).logout,
-                                            style: const TextStyle(fontSize: 16),
+                                            style:
+                                                const TextStyle(fontSize: 16),
                                           ),
-                                          trailing: const Icon(Icons.arrow_forward_ios,
-                                              size: 18, color: kGrey600),
+                                          trailing: const Icon(
+                                              Icons.arrow_forward_ios,
+                                              size: 18,
+                                              color: kGrey600),
                                         ),
                                       ),
 
@@ -1093,9 +1148,12 @@ class SettingScreenState extends State<SettingScreen>
 
                                     /// Render some extra menu for Vendor.
                                     /// Currently support WCFM & Dokan. Will support WooCommerce soon.
-                                    if (kFluxStoreMV.contains(serverConfig['type']) &&
+                                    if (kFluxStoreMV
+                                            .contains(serverConfig['type']) &&
                                         (user?.isVender ?? false)) ...[
-                                      Services().widget.renderVendorOrder(context),
+                                      Services()
+                                          .widget
+                                          .renderVendorOrder(context),
                                       renderVendorVacation(),
                                     ],
 
@@ -1105,9 +1163,14 @@ class SettingScreenState extends State<SettingScreen>
                                     // renderWebViewProfile(),
 
                                     /// render some extra menu for Listing
-                                    if (user != null && Config().isListingType) ...[
-                                      Services().widget.renderNewListing(context),
-                                      Services().widget.renderBookingHistory(context),
+                                    if (user != null &&
+                                        Config().isListingType) ...[
+                                      Services()
+                                          .widget
+                                          .renderNewListing(context),
+                                      Services()
+                                          .widget
+                                          .renderBookingHistory(context),
                                     ],
 
                                     const SizedBox(height: 10.0),
@@ -1126,7 +1189,11 @@ class SettingScreenState extends State<SettingScreen>
                         ),
                       ),
                       const SizedBox(height: 60),
-                      const Center(child: Text('Copyright 2020 Pakistan Supermarket',style: TextStyle(color: Colors.grey),)),
+                      const Center(
+                          child: Text(
+                        'Copyright 2020 Pakistan Supermarket',
+                        style: TextStyle(color: Colors.grey),
+                      )),
                       const SizedBox(height: 10),
                     ],
                   ),
