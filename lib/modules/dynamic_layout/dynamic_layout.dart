@@ -420,7 +420,8 @@ class _DynamicLayoutState extends State<DynamicLayout> {
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
-                            renderCategories(categories, appModel.categoryLayout)
+                            renderCategories(
+                                categories, appModel.categoryLayout)
                           ],
                         ),
                       ),
@@ -467,7 +468,10 @@ class _DynamicLayoutState extends State<DynamicLayout> {
                           //   RouteList.orders,
                           //   arguments: user,
                           // );
-                           Navigator.push(context, MaterialPageRoute(builder : (context)=> const BuyAgainPage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const BuyAgainPage()));
                         }),
                   ],
                 ),
@@ -791,7 +795,7 @@ class _DynamicLayoutState extends State<DynamicLayout> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
-                    Text('Fruit direct from Pakistan',
+                    Text('Fruits directly from Pakistan',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18)),
                   ],

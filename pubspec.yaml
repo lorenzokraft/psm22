@@ -42,7 +42,6 @@ dependencies:
   # Modal BottomSheet
   modal_bottom_sheet: ^2.0.1
 
-
   # FIREBASE PACKAGES
   firebase_core: 1.12.0
   firebase_analytics: 8.3.3
@@ -159,11 +158,6 @@ dependencies:
   flutter_google_places: ^0.3.0
   geocoder2: ^1.1.0
 
-
-
-
-
-
   #### For Shopify GraphQL
   graphql: 5.0.0
   awesome_card: 1.1.7
@@ -172,9 +166,9 @@ dependencies:
   ### ▶️ Audio Feature
   ### Search "Enable Audio feature" & uncomment to use - https://tppr.me/Z1TX5
 #  audio_manager: ^0.8.2
-  ### 💳 Facebook Ads
-  ### Search "Enable Facebook Ads" & uncomment to use  - https://tppr.me/9Pkf9
-  # facebook_audience_network: 1.0.0-nullsafety.0
+### 💳 Facebook Ads
+### Search "Enable Facebook Ads" & uncomment to use  - https://tppr.me/9Pkf9
+# facebook_audience_network: 1.0.0-nullsafety.0
 
 dev_dependencies:
   flutter_launcher_icons: 0.9.2
@@ -200,8 +194,6 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/app_icon.png"
-
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
