@@ -9,6 +9,8 @@ import 'commission_data.dart';
 class ProductItem {
   String? id;
   String? productId;
+  String? taxReason;
+  String? taxTotal;
   String? variationId;
   String? name;
   int? quantity;
@@ -21,6 +23,7 @@ class ProductItem {
   List<Map<String, dynamic>?> prodOptions = []; // for opencart
   String? storeId;
   String? storeName;
+
   Product? product;
 
   CommissionData? commissionData;
@@ -210,11 +213,16 @@ class ProductItem {
 
   ProductItem.fromShopifyJson(Map<String, dynamic> parsedJson) {
     try {
-      productId = parsedJson['variant']['product']['id'];
-      name = parsedJson['title'];
-      quantity = parsedJson['quantity'];
-      total = parsedJson['originalTotalPrice']['amount'];
-      featuredImage = ((parsedJson['variant'] ?? {})['image'] ?? {})['src'];
+      if (parsedJson['variant'] != null && parsedJson['quantity'] != null) {
+        name = parsedJson['title'];
+        productId = parsedJson['variant']['product']['id'];
+        quantity = parsedJson['quantity'];
+        total = parsedJson['originalTotalPrice']['amount'];
+        featuredImage = ((parsedJson['variant'] ?? {})['image'] ?? {})['src'];
+      } else {
+        taxReason = parsedJson['title'];
+        taxTotal = parsedJson['originalTotalPrice']['amount'];
+      }
     } catch (e, trace) {
       printLog(e.toString());
       printLog(trace.toString());

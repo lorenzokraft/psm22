@@ -703,7 +703,7 @@ class _MyCartState extends State<MyCart> with SingleTickerProviderStateMixin {
     await Services().widget.doCheckout(
       context,
       success: () async {
-        hideLoading('');
+        // showLoading();
         await FluxNavigate.pushNamed(
           RouteList.checkout,
           arguments: CheckoutArgument(isModal: widget.isModal),

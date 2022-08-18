@@ -1142,6 +1142,7 @@ class ShopifyService extends BaseServices {
       return const PagingResponse();
     }
   }
+
   ///  social login functions
 
   @override

@@ -33,7 +33,8 @@ class OrderPrice extends StatelessWidget {
         );
       }
       return Text(
-        PriceTools.getCurrencyFormatted(order.total, currencyRate)!,
+        PriceTools.getCurrencyFormatted(
+            order.total! - 10, currencyRate)!, //****MINUS -10*/
         style: const TextStyle(fontWeight: FontWeight.bold),
       );
     }

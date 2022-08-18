@@ -1290,6 +1290,6 @@ List<SubCategory> subCategories = [
       title: 'Pak Foods',
       subCategories: 'Pak Foods',
       id: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQxMDIyMjE5OTAyNg==',
-      image
+      // image
       icon: const Icon(Icons.arrow_drop_down)),
 ];

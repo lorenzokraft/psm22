@@ -416,7 +416,6 @@ class Order {
   }
 
   Order._fromShopify(Map<String, dynamic> parsedJson) {
-
     try {
       id = parsedJson['id'];
       number = "${parsedJson["orderNumber"]}";
@@ -439,7 +438,7 @@ class Order {
         quantity += productItem.quantity ?? 0;
         lineItems.add(productItem);
       });
-      billing = Address.fromShopifyJson(parsedJson['shippingAddress']);
+      billing = Address.fromShopifyJson(parsedJson['shippingAddress']); 
     } catch (e, trace) {
       printLog(e.toString());
       printLog(trace.toString());

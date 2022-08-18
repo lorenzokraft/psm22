@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:inspireui/widgets/platform_error/platform_error.dart';
 
+import '../../common/config.dart';
 import '../../common/constants.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -25,6 +26,7 @@ class WebViewInApp extends StatefulWidget {
 class _WebViewInAppState extends State<WebViewInApp> {
   final GlobalKey webViewKey = GlobalKey();
   bool isLoaded = false;
+  bool isLoading = true;
   bool isDone = false;
   String addListingUrl = '';
   late var authUrl;
@@ -80,40 +82,50 @@ class _WebViewInAppState extends State<WebViewInApp> {
               .copyWith(fontWeight: FontWeight.w600),
         ),
       ),
-      body: InAppWebView(
-        key: webViewKey,
-        initialUrlRequest: URLRequest(
-          url: Uri.parse(widget.url),
-        ),
-        initialUserScripts: UnmodifiableListView<UserScript>([]),
-        gestureRecognizers: <Factory<VerticalDragGestureRecognizer>>{}..add(
-            const Factory<VerticalDragGestureRecognizer>(
-                VerticalDragGestureRecognizer.new),
+      body: Stack(children: [
+        InAppWebView(
+          key: webViewKey,
+          initialUrlRequest: URLRequest(
+            url: Uri.parse(widget.url),
           ),
-        initialOptions: options,
-        pullToRefreshController: pullToRefreshController,
-        onWebViewCreated: (controller) {
-          webViewController = controller;
-        },
-        androidOnPermissionRequest: (controller, origin, resources) async {
-          return PermissionRequestResponse(
-              resources: resources,
-              action: PermissionRequestResponseAction.GRANT);
-        },
-        onLoadError: (controller, url, code, message) {
-          pullToRefreshController.endRefreshing();
-        },
-        onProgressChanged: (_, progress) {
-          if (progress == 100) {
+          initialUserScripts: UnmodifiableListView<UserScript>([]),
+          gestureRecognizers: <Factory<VerticalDragGestureRecognizer>>{}..add(
+              const Factory<VerticalDragGestureRecognizer>(
+                  VerticalDragGestureRecognizer.new),
+            ),
+          initialOptions: options,
+          pullToRefreshController: pullToRefreshController,
+          onWebViewCreated: (controller) {
+            webViewController = controller;
+          },
+          androidOnPermissionRequest: (controller, origin, resources) async {
+            return PermissionRequestResponse(
+                resources: resources,
+                action: PermissionRequestResponseAction.GRANT);
+          },
+          onLoadError: (controller, url, code, message) {
             pullToRefreshController.endRefreshing();
-          }
-        },
-        onUpdateVisitedHistory: (_, uri, androidIsReload) {
-          if (widget.onUrlChanged != null) {
-            widget.onUrlChanged!(uri?.toString());
-          }
-        },
-      ),
+          },
+          onProgressChanged: (_, progress) {
+            if (progress == 100) {
+              setState(() {
+                isLoading = false;
+              });
+              pullToRefreshController.endRefreshing();
+            }
+          },
+          onUpdateVisitedHistory: (_, uri, androidIsReload) {
+            if (widget.onUrlChanged != null) {
+              widget.onUrlChanged!(uri?.toString());
+            }
+          },
+        ),
+        isLoading
+            ? Center(
+                child: kLoadingWidget(context),
+              )
+            : Container()
+      ]),
     );
   }
 }

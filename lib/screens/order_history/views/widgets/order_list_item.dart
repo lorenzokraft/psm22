@@ -73,7 +73,7 @@ class OrderListItem extends StatelessWidget {
                                     child: Hero(
                                       tag: 'image-' +
                                           order.id! +
-                                          order.lineItems[1].productId!,
+                                          order.dateModified.toString(),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           borderRadius:

@@ -75,6 +75,7 @@ class _OrderHistoryDetailScreenState
 
     return Consumer<OrderHistoryDetailModel>(builder: (context, model, child) {
       final order = model.order;
+
       return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
@@ -104,7 +105,7 @@ class _OrderHistoryDetailScreenState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ...List.generate(
-                order.lineItems.length,
+                order.lineItems.length - 1,
                 (index) {
                   final _item = order.lineItems[index];
                   return ProductOrderItem(
@@ -154,7 +155,8 @@ class _OrderHistoryDetailScreenState
                           ],
                         ),
                       ),
-                    if (order.paymentMethodTitle != null)
+                    if (order.paymentMethodTitle != null &&
+                        order.paymentMethodTitle!.isNotEmpty)
                       Row(
                         children: <Widget>[
                           Text(S.of(context).paymentMethod,
@@ -179,10 +181,12 @@ class _OrderHistoryDetailScreenState
                           )
                         ],
                       ),
-                    if (order.paymentMethodTitle != null)
+                    if (order.paymentMethodTitle != null &&
+                        order.paymentMethodTitle!.isNotEmpty)
                       const SizedBox(height: 10),
                     (order.shippingMethodTitle != null &&
-                            kPaymentConfig['EnableShipping'])
+                            kPaymentConfig['EnableShipping'] &&
+                            order.shippingMethodTitle!.isNotEmpty)
                         ? Row(
                             children: <Widget>[
                               Text(S.of(context).shippingMethod,
@@ -251,7 +255,7 @@ class _OrderHistoryDetailScreenState
                               order.lineItems.fold(
                                   0,
                                   (dynamic sum, e) =>
-                                      sum + double.parse(e.total!)),
+                                      sum + double.parse(e.total ?? '0')),
                               currencyRate)!,
                           style:
                               Theme.of(context).textTheme.subtitle1!.copyWith(
@@ -260,9 +264,42 @@ class _OrderHistoryDetailScreenState
                         )
                       ],
                     ),
-                    if (order.paymentMethodTitle != null)
+                    if (order.lineItems.last.taxReason != null &&
+                        order.lineItems.last.taxReason!.isNotEmpty)
                       const SizedBox(height: 10),
-                    if (order.paymentMethodTitle != null)
+                    if (order.lineItems.last.taxReason != null &&
+                        order.lineItems.last.taxReason!.isNotEmpty)
+                      Row(
+                        children: <Widget>[
+                          Text(order.lineItems.last.taxReason!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w400,
+                                  )),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              PriceTools.getCurrencyFormatted(
+                                  order.lineItems.last.taxTotal!,
+                                  currencyRate)!,
+                              textAlign: TextAlign.right,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                            ),
+                          )
+                        ],
+                      ),
+                    if (order.paymentMethodTitle != null &&
+                        order.paymentMethodTitle!.isNotEmpty)
+                      const SizedBox(height: 10),
+                    if (order.paymentMethodTitle != null &&
+                        order.paymentMethodTitle!.isNotEmpty)
                       Row(
                         children: <Widget>[
                           Text(S.of(context).paymentMethod,
@@ -449,21 +486,29 @@ class _OrderHistoryDetailScreenState
                                                   right: 10,
                                                   top: 15,
                                                   bottom: 25),
-                                              child: enableOrderNoteHtml ? HtmlWidget(listOrderNote[index].note!, textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
-                                  height: 1.2),) : Linkify(
-                                                text:
-                                                listOrderNote[index].note!,
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 13,
-                                                    height: 1.2),
-                                                onOpen: (link) async {
-                                                  await Tools.launchURL(
-                                                      link.url);
-                                                },
-                                              ),
+                                              child: enableOrderNoteHtml
+                                                  ? HtmlWidget(
+                                                      listOrderNote[index]
+                                                          .note!,
+                                                      textStyle:
+                                                          const TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 13,
+                                                              height: 1.2),
+                                                    )
+                                                  : Linkify(
+                                                      text: listOrderNote[index]
+                                                          .note!,
+                                                      style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 13,
+                                                          height: 1.2),
+                                                      onOpen: (link) async {
+                                                        await Tools.launchURL(
+                                                            link.url);
+                                                      },
+                                                    ),
                                             ),
                                           ),
                                         ),

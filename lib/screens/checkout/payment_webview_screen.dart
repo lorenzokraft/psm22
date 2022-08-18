@@ -54,7 +54,10 @@ class PaymentWebviewState extends BaseScreen<PaymentWebview> {
 
   @override
   Widget build(BuildContext context) {
-    var checkoutMap = <dynamic, dynamic>{'url': '', 'headers': <String, String>{}};
+    var checkoutMap = <dynamic, dynamic>{
+      'url': '',
+      'headers': <String, String>{}
+    };
 
     if (widget.url != null) {
       checkoutMap['url'] = widget.url;
@@ -62,7 +65,8 @@ class PaymentWebviewState extends BaseScreen<PaymentWebview> {
       final paymentInfo = Services().widget.getPaymentUrl(context)!;
       checkoutMap['url'] = paymentInfo['url'];
       if (paymentInfo['headers'] != null) {
-        checkoutMap['headers'] = Map<String, String>.from(paymentInfo['headers']);
+        checkoutMap['headers'] =
+            Map<String, String>.from(paymentInfo['headers']);
       }
     }
 

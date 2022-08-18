@@ -147,7 +147,7 @@ class _StateProductOrderItem extends BaseScreen<ProductOrderItem> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
-                tag: 'image-' + widget.orderId + widget.product.productId!,
+                tag: 'image-' + widget.orderId,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Container(
@@ -172,7 +172,7 @@ class _StateProductOrderItem extends BaseScreen<ProductOrderItem> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.product.name!,
+                      widget.product.name ?? "N/A",
                       style: Theme.of(context).textTheme.subtitle1,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
